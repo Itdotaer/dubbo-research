@@ -17,6 +17,8 @@
     <modules>
         <module>dubbo-provider</module>
         <module>dubbo-consumer</module>
+        <module>dubbo-monitor</module>
+        <module>spring-research</module>
     </modules>
 
     <dependencyManagement>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="demo.converter.StringToPhoneNumberConverter" />
+            </set>
+        </property>
+    </bean>
+    <bean id="user" class="demo.models.User">
+        <property name="userName" value="胡江涛" />
+        <property name="sex" value="true" />
+        <property name="phoneNumber" value="010-12345678" />
+    </bean>
+
+</beans>

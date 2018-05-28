@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean xml:lang="en" id="dateBean" class="demo.models.DateBean" scope="singleton">
+        <property name="dateValue">
+            <value>2018-05-17</value>
+        </property>
+        <property name="message">
+            <value>${date.bean.message}</value>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <bean class="demo.DatePropertyEditorRegistrar" />
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>config/bean.properties</value>
+            </list>
+        </property>
+    </bean>
+</beans>

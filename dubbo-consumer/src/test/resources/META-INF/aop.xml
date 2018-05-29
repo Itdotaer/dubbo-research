@@ -1,0 +1,9 @@
+<aspectj>
+    <weaver>
+        <include withn="test.*" />
+    </weaver>
+
+    <aspects>
+        <aspect name="demo.aspectj.AspectJTest" />
+    </aspects>
+</aspectj>

@@ -172,6 +172,14 @@ public class TestDemoBean {
     }
 
     @Test
+    public void springAopWeaveTest() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("aspect-test.xml");
+
+        TestBeanInterface testBean = (TestBeanInterface) applicationContext.getBean("test");
+        testBean.test();
+    }
+
+    @Test
     public void stringTest() {
         String strA = new String("a");
 

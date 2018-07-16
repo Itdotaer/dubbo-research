@@ -19,6 +19,7 @@
         <module>dubbo-consumer</module>
         <module>dubbo-monitor</module>
         <module>spring-research</module>
+        <module>demo-spi</module>
     </modules>
 
     <dependencyManagement>

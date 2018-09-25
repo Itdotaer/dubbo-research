@@ -4,7 +4,7 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 
 
 /**
- * UserNamespaceHanlder
+ * UserNamespaceHandler
  *
  * @author jt_hu
  * @date 2018/5/16

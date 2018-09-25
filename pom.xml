@@ -24,6 +24,7 @@
         <module>kafka</module>
         <module>kafka-consumer</module>
         <module>kafka-producer</module>
+        <module>zookeeper</module>
     </modules>
 
     <dependencyManagement>
@@ -55,5 +56,5 @@
             </snapshots>
         </repository>
     </repositories>
-
+    
 </project>

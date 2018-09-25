@@ -21,7 +21,7 @@ public class SpringTestApplication {
         SpringApplication.run(SpringTestApplication.class, args);
     }
 
-    @KafkaListener(groupId = "console-consumer-15933", topics = "test")
+    @KafkaListener(groupId = "spring-test", topics = "test")
     void listener(ConsumerRecord<String, String> data) {
         System.out.println("消费者线程："
                 + Thread.currentThread().getName()

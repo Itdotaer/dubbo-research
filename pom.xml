@@ -25,6 +25,7 @@
         <module>kafka-consumer</module>
         <module>kafka-producer</module>
         <module>zookeeper</module>
+        <module>netty-research</module>
     </modules>
 
     <dependencyManagement>

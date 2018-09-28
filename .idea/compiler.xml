@@ -22,15 +22,15 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="basic-learn" target="1.8" />
-      <module name="demo-spi" target="1.5" />
+      <module name="demo-spi" target="1.8" />
       <module name="dubbo-consumer" target="1.6" />
       <module name="dubbo-monitor" target="1.6" />
-      <module name="dubbo-provider" target="1.5" />
-      <module name="dubbo-research" target="1.5" />
+      <module name="dubbo-provider" target="1.8" />
+      <module name="dubbo-research" target="1.8" />
       <module name="kafka" target="1.7" />
       <module name="kafka-consumer" target="1.7" />
-      <module name="kafka-producer" target="1.5" />
-      <module name="netty-research" target="1.5" />
+      <module name="kafka-producer" target="1.8" />
+      <module name="netty-research" target="1.8" />
       <module name="spring-research" target="1.6" />
       <module name="zookeeper" target="1.6" />
     </bytecodeTargetLevel>

@@ -1,7 +1,7 @@
 package com.itdotaer.dubbo.research.netty.nio;
 
 /**
- * TimeServer
+ * EchoServer
  *
  * @author jt_hu
  * @date 2018/9/25
@@ -21,7 +21,7 @@ public class TimeServer {
             }
         }
 
-        new Thread(new MultiplexerTimeServer(port), "TimeServer-001").start();
+        new Thread(new MultiplexerTimeServer(port), "EchoServer-001").start();
     }
 
 }

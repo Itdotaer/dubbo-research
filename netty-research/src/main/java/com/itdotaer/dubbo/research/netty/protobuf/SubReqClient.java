@@ -1,4 +1,4 @@
-package com.itdotaer.dubbo.research.netty.netty;
+package com.itdotaer.dubbo.research.netty.protobuf;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,8 +8,13 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.LineBasedFrameDecoder;
-import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
+import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
+import io.netty.handler.codec.serialization.ClassResolvers;
+import io.netty.handler.codec.serialization.ObjectDecoder;
+import io.netty.handler.codec.serialization.ObjectEncoder;
 
 /**
  * SubReqClient
@@ -17,7 +22,7 @@ import io.netty.handler.codec.string.StringDecoder;
  * @author jt_hu
  * @date 2018/9/28
  */
-public class TimeClient {
+public class SubReqClient {
 
     private void connect(String host, int port) {
         EventLoopGroup group = new NioEventLoopGroup();
@@ -31,9 +36,12 @@ public class TimeClient {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
-                            socketChannel.pipeline().addLast(new LineBasedFrameDecoder(1024));
-                            socketChannel.pipeline().addLast(new StringDecoder());
-                            socketChannel.pipeline().addLast(new TimeClientHandler());
+//                            socketChannel.pipeline().addLast(new LoggingHandler(LogLevel.INFO));
+                            socketChannel.pipeline().addLast(new ProtobufVarint32FrameDecoder());
+                            socketChannel.pipeline().addLast(new ProtobufDecoder(SubRespProto.SubResp.getDefaultInstance()));
+                            socketChannel.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
+                            socketChannel.pipeline().addLast(new ProtobufEncoder());
+                            socketChannel.pipeline().addLast(new SubReqClientHandler());
                         }
                     });
 
@@ -60,7 +68,7 @@ public class TimeClient {
             }
         }
 
-        new TimeClient().connect(DEFAULT_IP_ADDRESS, port);
+        new SubReqClient().connect(DEFAULT_IP_ADDRESS, port);
     }
 
 }

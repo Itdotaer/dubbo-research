@@ -17,6 +17,15 @@
             <artifactId>netty-all</artifactId>
             <version>5.0.0.Alpha1</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.6.1</version>
+        </dependency>
     </dependencies>
 
 </project>

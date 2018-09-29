@@ -9,34 +9,35 @@ import java.nio.ByteBuffer;
 import java.util.Date;
 
 /**
- * TimeServerHandler
+ * SubReqServerHandler
  *
  * @author jt_hu
  * @date 2018/9/28
  */
 public class TimeServerHandler extends ChannelHandlerAdapter {
 
+    private int counter = 0;
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        ByteBuf buf = (ByteBuf) msg;
+//        ByteBuf buf = (ByteBuf) msg;
+//
+//        byte[] bytes = new byte[buf.readableBytes()];
+//
+//        buf.readBytes(bytes);
 
-        byte[] bytes = new byte[buf.readableBytes()];
-
-        buf.readBytes(bytes);
-
-        String body = new String(bytes, "UTF-8");
-        System.out.println("The time server receive order : " + body);
+//        String body = new String(bytes, "UTF-8").substring(0,
+//                bytes.length - System.getProperty("line.separator").length());
+        String body = (String) msg;
+        System.out.println("The time server receive order : " + body + "; the counter is " + ++counter);
 
         String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body)
                 ? new Date(System.currentTimeMillis()).toString()
                 : "BAD ORDER";
-        ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
-        ctx.write(resp);
-    }
 
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-        ctx.flush();
+        currentTime += System.getProperty("line.separator");
+        ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
+        ctx.writeAndFlush(resp);
     }
 
     @Override

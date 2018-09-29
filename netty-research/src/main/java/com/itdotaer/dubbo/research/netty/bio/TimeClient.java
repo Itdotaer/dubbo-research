@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 /**
- * TimeClient
+ * SubReqClient
  *
  * @author jt_hu
  * @date 2018/9/25

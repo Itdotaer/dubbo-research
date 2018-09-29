@@ -1,4 +1,4 @@
-package com.itdotaer.dubbo.research.netty.netty;
+package com.itdotaer.dubbo.research.netty.echo;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -13,7 +13,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @author jt_hu
  * @date 2018/9/28
  */
-public class TimeServer {
+public class EchoServer {
 
     public void bind(int port) {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
@@ -50,7 +50,7 @@ public class TimeServer {
             }
         }
 
-        new TimeServer().bind(port);
+        new EchoServer().bind(port);
     }
 
 }

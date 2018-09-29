@@ -1,4 +1,4 @@
-package com.itdotaer.dubbo.research.netty.netty;
+package com.itdotaer.dubbo.research.netty.subreq;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -6,6 +6,8 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 /**
  * SubReqServer
@@ -13,7 +15,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @author jt_hu
  * @date 2018/9/28
  */
-public class TimeServer {
+public class SubReqServer {
 
     public void bind(int port) {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
@@ -24,7 +26,8 @@ public class TimeServer {
 
             bootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG, 1024)
+                    .option(ChannelOption.SO_BACKLOG, 100)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChildChannelHandler());
 
             ChannelFuture f = bootstrap.bind(port).sync();
@@ -50,7 +53,7 @@ public class TimeServer {
             }
         }
 
-        new TimeServer().bind(port);
+        new SubReqServer().bind(port);
     }
 
 }

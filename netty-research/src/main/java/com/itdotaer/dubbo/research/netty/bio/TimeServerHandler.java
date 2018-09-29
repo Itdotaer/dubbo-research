@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.util.Date;
 
 /**
- * TimeServerHandler
+ * SubReqServerHandler
  *
  * @author jt_hu
  * @date 2018/9/25

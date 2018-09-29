@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * TimeServer
+ * EchoServer
  *
  * @author jt_hu
  * @date 2018/9/25

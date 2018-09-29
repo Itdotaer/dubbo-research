@@ -1,4 +1,4 @@
-package com.itdotaer.dubbo.research.netty.netty;
+package com.itdotaer.dubbo.research.netty.echo;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -11,13 +11,13 @@ import io.netty.channel.ChannelHandlerContext;
  * @author jt_hu
  * @date 2018/9/28
  */
-public class TimeClientHandler extends ChannelHandlerAdapter {
+public class EchoClientHandler extends ChannelHandlerAdapter {
 
     private int counter = 0;
     private byte[] req;
 
-    public TimeClientHandler() {
-        this.req = ("QUERY TIME ORDER" + System.getProperty("line.separator")).getBytes();
+    public EchoClientHandler() {
+        this.req = ("Test message from HarryHu.$_").getBytes();
     }
 
     @Override
@@ -32,14 +32,9 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-//        ByteBuf buf = (ByteBuf) msg;
-//        byte[] bytes = new byte[buf.readableBytes()];
-//
-//        buf.readBytes(bytes);
-//        String resp = new String(bytes);
         String resp = (String) msg;
 
-        System.out.println("Now is :" + resp + "; the counter is " + ++counter);
+        System.out.println("The echo client receive message(count=" + ++counter + "):" + resp);
     }
 
     @Override

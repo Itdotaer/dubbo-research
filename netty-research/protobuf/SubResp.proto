@@ -1,0 +1,11 @@
+syntax="proto3";
+
+option java_package = "com.itdotaer.dubbo.research.netty.protobuf";
+option java_outer_classname = "SubRespProto";
+
+message SubResp {
+    int64 orderId=1;
+    string productName=2;
+    int64 price=3;
+    string desc=4;
+}

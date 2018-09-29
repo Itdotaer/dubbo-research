@@ -1,7 +1,7 @@
 package com.itdotaer.dubbo.research.netty.nio;
 
 /**
- * TimeClient
+ * SubReqClient
  *
  * @author jt_hu
  * @date 2018/9/25
@@ -22,7 +22,7 @@ public class TimeClient {
             }
         }
 
-        new Thread(new TimeClientHandle(DEFAULT_IP_ADDRESS, port), "TimeClient-001").start();
+        new Thread(new TimeClientHandle(DEFAULT_IP_ADDRESS, port), "SubReqClient-001").start();
     }
 
 }

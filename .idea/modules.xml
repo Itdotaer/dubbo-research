@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/basic-learn/basic-learn.iml" filepath="$PROJECT_DIR$/basic-learn/basic-learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bean-copy/bean-copy.iml" filepath="$PROJECT_DIR$/bean-copy/bean-copy.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-spi/demo-spi.iml" filepath="$PROJECT_DIR$/demo-spi/demo-spi.iml" />
       <module fileurl="file://$PROJECT_DIR$/dubbo-consumer/dubbo-consumer.iml" filepath="$PROJECT_DIR$/dubbo-consumer/dubbo-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/dubbo-monitor/dubbo-monitor.iml" filepath="$PROJECT_DIR$/dubbo-monitor/dubbo-monitor.iml" />

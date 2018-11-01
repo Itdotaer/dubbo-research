@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  */
 public class HashSetTest {
 
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         ExecutorService pool = getThreadPool();
 
         int num = 5;

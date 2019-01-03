@@ -1,4 +1,4 @@
-package com.itdotaer.basiclean.collections;
+package com.itdotaer.basiclearn.collections;
 
 /**
  * Automic

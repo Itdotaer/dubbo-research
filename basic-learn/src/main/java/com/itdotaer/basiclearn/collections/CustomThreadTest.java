@@ -1,4 +1,4 @@
-package com.itdotaer.basiclean.collections;
+package com.itdotaer.basiclearn.collections;
 
 import java.util.ArrayList;
 import java.util.List;

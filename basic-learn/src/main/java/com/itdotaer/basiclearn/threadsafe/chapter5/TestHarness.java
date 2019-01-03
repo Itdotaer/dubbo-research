@@ -1,0 +1,43 @@
+package com.itdotaer.basiclearn.threadsafe.chapter5;
+
+import java.util.concurrent.CountDownLatch;
+
+/**
+ * TestHarness
+ *
+ * @author jt_hu
+ * @date 2018/11/22
+ */
+public class TestHarness {
+
+    public long timeTasks(int nThreads, final Runnable task) throws InterruptedException {
+        final CountDownLatch startGate = new CountDownLatch(1);
+        final CountDownLatch endGate = new CountDownLatch(nThreads);
+
+        for (int i = 0; i < nThreads; i++) {
+            Thread t = new Thread(() -> {
+                try {
+                    startGate.await();
+
+                    try {
+                        task.run();
+                    } finally {
+                        endGate.countDown();
+                    }
+                } catch (InterruptedException e) {
+                    // do nothing
+                }
+            });
+
+            t.start();
+        }
+
+        long start = System.nanoTime();
+        startGate.countDown();
+        endGate.await();
+        long end = System.nanoTime();
+
+        return end - start;
+    }
+
+}

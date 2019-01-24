@@ -3,6 +3,7 @@ package com.itdotaer.basiclearn.threadsafe;
 import org.junit.Test;
 
 import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * FutureTest
